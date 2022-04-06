@@ -1,21 +1,17 @@
-<!doctype html>
-<title>Flask & VGG16 Image Classifier</title>
-<h2>Select a file to upload</h2>
-<p>
-	{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-        Label: {{ messages[0] }}
-        Accuracy: {{ messages[1] }}
-	  {% endif %}
-	{% endwith %}
-</p>
-<form method="post" action="/" enctype="multipart/form-data">
-    <dl>
-	<p>
-		<input type="file" name="file" autocomplete="off" required>
-	</p>
-    </dl>
-    <p>
-	<input type="submit" value="Submit">
-    </p>
-</form>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Upload Image</title>
+</head>
+<body>
+    <div class="col-sm">
+      <h1><span class="badge badge-danger">Chest X-Ray Predictor</span></h1>
+    </div>
+    <div class="col-sm">
+      <form action = "/predict" method = "post" enctype="multipart/form-data">
+          <input type="file" name="file" />
+          <input type = "submit" value="Upload">
+      </form>
+    </div>
+</body>
+</html>
