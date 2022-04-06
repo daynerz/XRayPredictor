@@ -68,7 +68,6 @@ model.save('saved_model.h5')
 
 # Prediction
 def getPrediction(image_path):
-    print("this is image path: ", image_path)
     image = load_img(image_path, target_size=(224, 224))
     image = img_to_array(image)
     image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
@@ -76,12 +75,10 @@ def getPrediction(image_path):
     pred = model.predict(image)
     for index, probability in enumerate(pred):
         if probability > 0.5:
-            print(probability[0])
-            prob = round(probability[0], 2) * 100
-            print("prob = ", prob)
+            prob = round(probability[0]*100, 2)
+            # print("prob = ", prob)
             return (str(prob) + "% Normal")
         else:
-            print(probability[0])
-            prob = (1-round(probability[0], 2)) * 100
-            print("prob = ", prob)
+            prob = round((1-probability[0])*100, 2)
+            # print("prob = ", prob)
             return (str(prob) + "% COVID19 Pneumonia")

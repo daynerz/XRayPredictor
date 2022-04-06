@@ -22,7 +22,7 @@ def predict():
         output = getPrediction(file_path)
         print(output)
         
-    return render_template('predict.html', product = output, user_image = file_path, file_name=filename)  
+    return render_template('predict.html', prediction = output, user_image = '/static/'+filename, file_name=filename)  
 
 if __name__ == "__main__":
     app.run()
