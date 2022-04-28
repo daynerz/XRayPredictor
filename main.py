@@ -81,4 +81,4 @@ def getPrediction(image_path):
         else:
             prob = round((1-probability[0])*100, 2)
             # print("prob = ", prob)
-            return (str(prob) + "% COVID19 Pneumonia")
+            return (str(prob) + "% COVID19")
